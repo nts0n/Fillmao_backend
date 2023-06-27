@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Net;
 using System.Net.Sockets;
 using Newtonsoft.Json;
+using FireSharp.Config;
+using FireSharp.Interfaces;
 
 namespace dieforproject
 {
@@ -18,6 +20,7 @@ namespace dieforproject
         Socket server_socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         Thread server_run;
         NetworkStream ns;
+        Random r = new Random();
         public room(int id, int port) {
             this.id = id;
             this.port = port;
@@ -26,6 +29,12 @@ namespace dieforproject
             server_run.Start();
         }
 
+        IFirebaseConfig config = new FirebaseConfig()
+        {
+            AuthSecret = "vTd2kobcxCaAw3EbOOqfRQmWxdyiD6JkB80yr5t2",
+            BasePath = "https://fillmao-4e9e1-default-rtdb.asia-southeast1.firebasedatabase.app/"
+        };
+        IFirebaseClient xx;
 
         void send(Socket client)
         {
@@ -60,6 +69,13 @@ namespace dieforproject
                     if (msg != null && msg[0] != '\0')
                     {
                         x = JsonConvert.DeserializeObject<Player>(msg);
+                        string idngchoi = r.Next(100000, 999999).ToString();
+                        Player player = new Player(
+                            idngchoi,
+                            x.PlayerName
+
+                        );
+                        var ssetter = xx.Set("player/" + idngchoi, player);
                         Console.WriteLine(msg);
                         foreach (Socket c in clients)
                         {

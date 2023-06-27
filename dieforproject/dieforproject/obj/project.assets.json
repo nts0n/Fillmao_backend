@@ -400,11 +400,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\work\\Code\\Fillmao\\dieforproject\\dieforproject\\dieforproject.csproj",
+      "projectUniqueName": "D:\\work\\Code\\Fillmao\\Fillmaobackend\\dieforproject\\dieforproject\\dieforproject.csproj",
       "projectName": "dieforproject",
-      "projectPath": "D:\\work\\Code\\Fillmao\\dieforproject\\dieforproject\\dieforproject.csproj",
+      "projectPath": "D:\\work\\Code\\Fillmao\\Fillmaobackend\\dieforproject\\dieforproject\\dieforproject.csproj",
       "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-      "outputPath": "D:\\work\\Code\\Fillmao\\dieforproject\\dieforproject\\obj\\",
+      "outputPath": "D:\\work\\Code\\Fillmao\\Fillmaobackend\\dieforproject\\dieforproject\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",

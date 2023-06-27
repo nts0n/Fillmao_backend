@@ -47,7 +47,7 @@ namespace dieforproject
 
         void room_create()
         {
-
+            
         }
         void receive_and_broacast(object obj)
         {
@@ -69,15 +69,25 @@ namespace dieforproject
                     
                     if (msg != null && msg[0] != '\0')
                     {
-                        x = JsonConvert.DeserializeObject<Player>(msg);
-                        string idngchoi = r.Next(100000, 999999).ToString();
-                        Player player = new Player(
-                            idngchoi,
-                            x.PlayerName
-
-                        );
-                        var ssetter = xx.Set("player/" + idngchoi, player);
                         Console.WriteLine(msg);
+                        string[] temp = msg.Split(", ");
+                        string option = temp[0];
+                        Console.WriteLine(temp[1]);
+                        if (option == "login")
+                        {
+                            x = JsonConvert.DeserializeObject<Player>(temp[1]);
+                            string idngchoi = r.Next(100000, 999999).ToString();
+                            Player player = new Player(
+                                idngchoi,
+                                x.PlayerName
+
+                            );
+                            var ssetter = xx.Set("player/" + idngchoi, player);
+                        }
+                        else if(option == "create_room")
+                        {
+                            room_create();
+                        }
                         foreach (Socket c in clients)
                         {
                             send(c);

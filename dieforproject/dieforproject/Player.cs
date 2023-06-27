@@ -17,8 +17,8 @@ namespace dieforproject
 
         public Player(string playerId = "", string playerName = "", string roomId = "", int point = 0, string mode = "", bool isReady = false)
         {
-            this.playerId = playerName;
-            this.playerName = playerId;
+            this.playerId = playerId;
+            this.playerName = playerName;
             this.roomId = roomId;
             this.point = point;
             this.mode = mode;

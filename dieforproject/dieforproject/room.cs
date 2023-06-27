@@ -25,6 +25,7 @@ namespace dieforproject
             this.id = id;
             this.port = port;
             RoomServerIP = new IPEndPoint(IPAddress.Any, port);
+            xx = new FireSharp.FirebaseClient(config);
             server_run = new Thread(Start);
             server_run.Start();
         }
@@ -44,7 +45,7 @@ namespace dieforproject
             ns.Write(send_data, 0, send_data.Length);
         }
 
-        void login()
+        void room_create()
         {
 
         }
